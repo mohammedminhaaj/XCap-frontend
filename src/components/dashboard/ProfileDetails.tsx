@@ -13,7 +13,7 @@ const ProfileDetails: React.FC = () => {
 		isLoading,
 		isError,
 	} = useQuery({
-		queryKey: ['user-details'],
+		queryKey: ['userDetails'],
 		queryFn: () => getUserDetails(userToken!),
 		retry: 1,
 		staleTime: Infinity, // Setting stale time to infinity to retain the cache

@@ -3,7 +3,11 @@ import { ProfileScreenProps } from '../../pages/Profile';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAuthContext } from '../../store/AuthProvider';
 import useToast from '../../hooks/useToast';
-import { useMutation } from '@tanstack/react-query';
+import {
+	QueryClient,
+	useMutation,
+	useQueryClient,
+} from '@tanstack/react-query';
 import { changeEmail } from '../../lib/auth_helper';
 import { MessageType } from '../../store/MessageProvider';
 import { ArrowLeft, Loader2 } from 'lucide-react';
@@ -36,6 +40,8 @@ const ChangeEmailForm: React.FC<ChangeEmailFormProps> = ({
 	// Custom hook to display toast messages
 	const toast = useToast();
 
+	const queryClient = useQueryClient();
+
 	const { mutate, isPending } = useMutation({
 		// Helper function to handle form submission
 		mutationFn: changeEmail,
@@ -62,6 +68,7 @@ const ChangeEmailForm: React.FC<ChangeEmailFormProps> = ({
 			} else {
 				// Show success message
 				toast(payload.message);
+				queryClient.invalidateQueries({ queryKey: ['userDetails'] });
 			}
 		},
 		onError: (error) => {
