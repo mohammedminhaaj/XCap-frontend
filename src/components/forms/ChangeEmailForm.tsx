@@ -95,7 +95,7 @@ const ChangeEmailForm: React.FC<ChangeEmailFormProps> = ({
 				animate={{ x: 0, opacity: 1 }}
 				exit={{ x: -100, opacity: 1 }}
 				onSubmit={handleSubmit(onSubmit)}
-				className='space-y-5'>
+				className='space-y-5 w-full md:w-1/2 lg:w-1/3 xl:w-1/4'>
 				<div className='relative'>
 					<input
 						id='email-field'
