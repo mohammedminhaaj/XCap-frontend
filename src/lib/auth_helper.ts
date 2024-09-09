@@ -1,6 +1,7 @@
-import { BASE_URL } from './utils';
+import { UserData } from './types';
+import { BASE_URL, constructedQuery } from './utils';
 
-export const login = async (data: Record<'username' | 'password', string>) => {
+export const login = async (data: { username: string; password: string }) => {
 	/*
 		Helper function to handle login
 	*/
@@ -15,9 +16,11 @@ export const login = async (data: Record<'username' | 'password', string>) => {
 	return response;
 };
 
-export const signup = async (
-	data: Record<'username' | 'email' | 'password', string>
-) => {
+export const signup = async (data: {
+	username: string;
+	email: string;
+	password: string;
+}) => {
 	/*
 		Helper function to handle signup
 	*/
@@ -33,9 +36,10 @@ export const signup = async (
 	return response;
 };
 
-export const forgotPassword = async (
-	data: Record<'email' | 'username', string>
-) => {
+export const forgotPassword = async (data: {
+	email: string;
+	username: string;
+}) => {
 	/*
 		Helper function to handle forgot password
 	*/
@@ -48,4 +52,60 @@ export const forgotPassword = async (
 		}),
 	});
 	return response;
+};
+
+export const changeEmail = async (data: { email: string; token: string }) => {
+	/*
+		Helper function to change email
+	*/
+	const response = await constructedQuery(
+		`/api/auth/change-email/`,
+		'POST',
+		data.token,
+		{
+			email: data.email,
+		}
+	);
+
+	return response;
+};
+
+export const changePassword = async (data: {
+	oldPassword: string;
+	newPassword: string;
+	token: string;
+}) => {
+	/*
+		Helper function to change password
+	*/
+	const response = await constructedQuery(
+		`/api/auth/change-password/`,
+		'POST',
+		data.token,
+		{
+			old_password: data.oldPassword,
+			new_password: data.newPassword,
+		}
+	);
+
+	return response;
+};
+
+export const getUserDetails = async (token: string) => {
+	/*
+		Helper function to get user details
+	*/
+	const response = await constructedQuery(
+		'/api/auth/get-user/',
+		'GET',
+		token
+	);
+
+	// Handle response errors
+	if (response.status >= 400) {
+		const data = (await response.json()) as UserData;
+		throw new Error(data.message);
+	}
+
+	return (await response.json()) as UserData;
 };

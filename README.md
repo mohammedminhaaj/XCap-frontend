@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# XCap
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This document provides a step-by-step guide to help developers pull and run this React.js application on their local system.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure that you have the following software installed on your system:
 
-### `npm start`
+- Node.js
+- Git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Clone the Repository
 
-### `npm test`
+To get a copy of the project up and running on your local machine, first, clone the repository using the following command:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+` >> git clone https://github.com/mohammedminhaaj/XCap-frontend `
 
-### `npm run build`
+### Install Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navigate into the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+` >> cd XCap-frontend `
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Next, install the required dependencies using npm
 
-### `npm run eject`
+` >> npm install `
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This command installs all the dependencies listed in the package.json file into the node_modules directory.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running the Application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To start the application in development mode with hot reloading, use the following command
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+` >> npm run start `
 
-## Learn More
+## Additional Resources
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project requires a backend to function correctly. You can access the backend service using the following link:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[TradeX-Backend](https://github.com/mohammedminhaaj/XCap-backend)
+
+Ensure that the backend service is running and accessible before starting the frontend application.
+
+
+

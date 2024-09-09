@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .primary-button {
-	@apply rounded-xl bg-emerald-500 text-white px-4 py-2 transition-all gap-2 duration-300 hover:bg-emerald-600 disabled:bg-gray-500 hover:gap-4 flex items-center justify-center;
+	@apply rounded-xl bg-emerald-500 text-white px-4 py-2 transition-all gap-2 duration-300 hover:bg-emerald-600 disabled:bg-gray-500 hover:gap-4 flex items-center justify-center text-xs md:text-sm;
 }
 
 .form-input {
